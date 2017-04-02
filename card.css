@@ -1,0 +1,84 @@
+html {
+  font-size: 2vw;
+  background: #5a6772;
+}
+body {
+  align-items: center;
+  animation: gradient-animation 120s linear infinite;
+  background: linear-gradient(60deg, #c2e59c , #64b3f4);
+  background-size: 200% 200%;
+  color: #5a6772;
+  display: flex;
+  font-family: 'Source Sans Pro', sans-serif;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+ul {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ul.contact {
+  align-items: flex-start;
+  flex-direction: column;
+}
+ul.social li:nth-child(2) {
+  flex-grow: 1;
+  margin-left: .2em;
+}
+ul.social li:last-child {
+  flex-grow: 0;
+}
+img {
+  height: .8em;
+  width: .8em;
+}
+a {
+  color: #5a6772;
+  transition: all 200ms ease-in-out;
+}
+a:hover {
+  color: #2d82c8;
+}
+h1 {
+  color: #2d82c8;
+  font-family: 'Bangers';
+  font-size: 3.5em;
+  line-height: 1;
+  margin: 0;
+}
+.card {
+  background-color: #fff;
+  border-radius: 0.125em;
+  box-shadow: 0 0 0.125em rgba(90, 103, 114, 0.1);
+  /*box-shadow: 0 0 0.125em rgba(45, 130, 200, 0.2);*/
+  display: inline-flex;
+  flex-direction: column;
+  font-size: 1.2em;
+  padding: 1.4em 4em;
+}
+h1::selection, li::selection, a::selection {
+  background: #c2e59c;
+}
+.head {
+  margin-bottom: 1em;
+}
+.subhead {
+  color: #8b949c;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.contact, .social {
+  margin-top: 1em;
+}
+
+@keyframes gradient-animation {
+    0%{background-position:0 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0 50%}
+}
