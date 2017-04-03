@@ -1,13 +1,13 @@
 html {
   font-size: 2vw;
-  background: #5a6772;
+  background: #536574;
 }
 body {
   align-items: center;
   animation: gradient-animation 120s linear infinite;
   background: linear-gradient(60deg, #c2e59c , #64b3f4);
   background-size: 200% 200%;
-  color: #5a6772;
+  color: #536574;
   display: flex;
   font-family: 'Source Sans Pro', sans-serif;
   justify-content: center;
@@ -38,18 +38,21 @@ img {
   width: .8em;
 }
 a {
-  color: #5a6772;
+  color: #536574;
   transition: all 200ms ease-in-out;
 }
 a:hover {
-  color: #2d82c8;
+  color: #4F8EC1;
 }
 h1 {
-  color: #2d82c8;
-  font-family: 'Bangers';
+  color: #475969;
+  font-family: 'Playfair Display', serif;
   font-size: 3.5em;
-  line-height: 1;
+  line-height: 1.4;
   margin: 0;
+}
+em {
+  font-family: 'Playfair Display', serif;
 }
 .card {
   background-color: #fff;
@@ -59,16 +62,16 @@ h1 {
   display: inline-flex;
   flex-direction: column;
   font-size: 1.2em;
-  padding: 1.4em 4em;
+  padding: 2.2em 4.4em;
 }
-h1::selection, li::selection, a::selection {
+h1::selection, span::selection, a::selection {
   background: #c2e59c;
 }
 .head {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 .subhead {
-  color: #8b949c;
+  color: #6D7F8F;
   font-size: 1.2em;
   font-weight: 700;
   text-transform: uppercase;
