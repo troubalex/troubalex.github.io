@@ -43,7 +43,7 @@ img {
 }
 a {
   color: #536574;
-  transition: all 200ms ease-in-out;
+  transition: all 150ms ease-in-out;
 }
 a:hover {
   color: #4F8EC1;
@@ -66,6 +66,7 @@ a:hover {
   background-image: url("images/github-hover.svg");
 }
 .more{
+  animation: pointer 3s ease-in-out infinite;
   background-image: url("images/fingerright.svg");
   display: block;
   height: 100%;
@@ -110,7 +111,14 @@ h1::selection, span::selection, a::selection {
 }
 
 @keyframes gradient-animation {
-    0%{background-position:0 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0 50%}
+  0%{background-position:0 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0 50%}
+}
+@keyframes pointer {
+  10%{transform: translateX(.16em)}
+  15%{transform: translateX(0)}
+  20%{transform: translateX(.2em)}
+  /*25%{transform:translateX(-.08em)}*/
+  25%{transform: translateX(0)}
 }
