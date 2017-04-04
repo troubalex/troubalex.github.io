@@ -1,3 +1,4 @@
+/*** MAIN SELECTORS ***/
 html {
   font-size: 2vw;
   background: #536574;
@@ -14,6 +15,22 @@ body {
   height: 100vh;
   margin: 0;
 }
+h1 {
+  color: #475969;
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5em;
+  line-height: 1.4;
+  margin: 0;
+}
+h1::selection,
+span::selection,
+em::selection,
+a::selection {
+  background: #c2e59c;
+}
+em {
+  font-family: 'Playfair Display', serif;
+}
 ul {
   align-items: center;
   display: flex;
@@ -21,21 +38,6 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-}
-ul.contact {
-  align-items: flex-start;
-  flex-direction: column;
-}
-ul.social li {
-  height: .8em;
-  width: .8em;
-}
-ul.social li:nth-child(2) {
-  flex-grow: 1;
-  margin-left: .4em;
-}
-ul.social li:last-child {
-  flex-grow: 0;
 }
 img {
   height: .8em;
@@ -47,6 +49,23 @@ a {
 }
 a:hover {
   color: #4F8EC1;
+}
+
+/*** CLASS SELECTORS ***/
+.contact {
+  align-items: flex-start;
+  flex-direction: column;
+}
+.social li {
+  height: .8em;
+  width: .8em;
+}
+.social li:nth-child(2) {
+  flex-grow: 1;
+  margin-left: .4em;
+}
+.social li:last-child {
+  flex-grow: 0;
 }
 .twitter{
   background-image: url("images/twitter.svg");
@@ -74,28 +93,14 @@ a:hover {
 .more:hover {
   background-image: url("images/fingerright-hover.svg");
 }
-h1 {
-  color: #475969;
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5em;
-  line-height: 1.4;
-  margin: 0;
-}
-em {
-  font-family: 'Playfair Display', serif;
-}
 .card {
   background-color: #fff;
   border-radius: 0.125em;
   box-shadow: 0 0 0.125em rgba(90, 103, 114, 0.1);
-  /*box-shadow: 0 0 0.125em rgba(45, 130, 200, 0.2);*/
   display: inline-flex;
   flex-direction: column;
   font-size: 1.2em;
   padding: 2.2em 4.4em;
-}
-h1::selection, span::selection, a::selection {
-  background: #c2e59c;
 }
 .head {
   margin-bottom: 2em;
@@ -110,6 +115,7 @@ h1::selection, span::selection, a::selection {
   margin-top: 1em;
 }
 
+/*** ANIMATIIONS ***/
 @keyframes gradient-animation {
   0%{background-position:0 50%}
   50%{background-position:100% 50%}
@@ -119,6 +125,5 @@ h1::selection, span::selection, a::selection {
   10%{transform: translateX(.16em)}
   15%{transform: translateX(0)}
   20%{transform: translateX(.2em)}
-  /*25%{transform:translateX(-.08em)}*/
   25%{transform: translateX(0)}
 }
