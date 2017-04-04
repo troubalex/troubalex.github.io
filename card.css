@@ -11,6 +11,8 @@ body {
   color: #536574;
   display: flex;
   font-family: 'Source Sans Pro', sans-serif;
+  font-style: normal;
+  font-weight: 400;
   justify-content: center;
   height: 100vh;
   margin: 0;
@@ -18,6 +20,8 @@ body {
 h1 {
   color: #475969;
   font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
   font-size: 3.5em;
   line-height: 1.4;
   margin: 0;
@@ -30,6 +34,8 @@ a::selection {
 }
 em {
   font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
 }
 ul {
   align-items: center;
@@ -126,4 +132,36 @@ a:hover {
   15%{transform: translateX(0)}
   20%{transform: translateX(.2em)}
   25%{transform: translateX(0)}
+}
+
+/*** BREAKPOINTS ***/
+@media screen and (max-width: 599px) {
+  html {
+    font-size: 3.2vw;
+  }
+  body {
+    align-items: flex-start;
+  }
+  h1 {
+    font-size: 2.4em;
+  }
+  .card {
+    justify-content: space-between;
+    height: 50vh;
+    margin-top: 10%;
+    padding: 5.6em 2em 2.2em 2em;
+  }
+  .head {
+    flex-grow: 2;
+  }
+  .subhead {
+    display: block;
+  }
+  .social li {
+    height: 1em;
+    width: 1em;
+  }
+}
+@media (max-width: 599px) and (orientation: portrait) {
+
 }
