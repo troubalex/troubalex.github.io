@@ -26,9 +26,13 @@ ul.contact {
   align-items: flex-start;
   flex-direction: column;
 }
+ul.social li {
+  height: .8em;
+  width: .8em;
+}
 ul.social li:nth-child(2) {
   flex-grow: 1;
-  margin-left: .2em;
+  margin-left: .4em;
 }
 ul.social li:last-child {
   flex-grow: 0;
@@ -43,6 +47,31 @@ a {
 }
 a:hover {
   color: #4F8EC1;
+}
+.twitter{
+  background-image: url("images/twitter.svg");
+  display: block;
+  height: 100%;
+}
+.twitter:hover {
+  background-image: url("images/twitter-hover.svg");
+}
+.github{
+  background-image: url("images/github.svg");
+  background-repeat: no-repeat;
+  display: block;
+  height: 100%;
+}
+.github:hover {
+  background-image: url("images/github-hover.svg");
+}
+.more{
+  background-image: url("images/fingerright.svg");
+  display: block;
+  height: 100%;
+}
+.more:hover {
+  background-image: url("images/fingerright-hover.svg");
 }
 h1 {
   color: #475969;
