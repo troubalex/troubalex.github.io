@@ -51,7 +51,7 @@ img {
 }
 a {
   color: #536574;
-  transition: all 150ms ease-in-out;
+  transition: color 150ms ease-in-out;
 }
 a:hover {
   color: #4F8EC1;
@@ -140,16 +140,18 @@ a:hover {
     font-size: 3.2vw;
   }
   body {
-    align-items: flex-start;
+    align-items: stretch;
   }
   h1 {
     font-size: 2.4em;
   }
+  li {
+    font-size: 1.2em;
+  }
   .card {
     justify-content: space-between;
-    height: 50vh;
-    margin-top: 10%;
-    padding: 5.6em 2em 2.2em 2em;
+    margin: 20% 0 30% 0;
+    padding: 6.8em 2em 2.2em 2em;
   }
   .head {
     flex-grow: 2;
@@ -161,7 +163,4 @@ a:hover {
     height: 1em;
     width: 1em;
   }
-}
-@media (max-width: 599px) and (orientation: portrait) {
-
 }
