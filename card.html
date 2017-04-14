@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <title>Card</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700i" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400i,700i" rel="stylesheet">
     <link rel="stylesheet" href="card.css">
-    <link rel="prefetch" href="/images/github-hover.svg">
-    <link rel="prefetch" href="/images/twitter-hover.svg">
+    <link rel="prefetch" href="images/github-hover.svg">
+    <link rel="prefetch" href="images/twitter-hover.svg">
   </head>
   <body>
-    <div class="card">
+    <div class="card card-front">
       <div class="head">
-        <h1>Alexandra Leisse</h1>
-        <span class="subhead">Product <em>&amp;</em> Design</span>
+        <h1 class="name">Alexandra Leisse</h1>
+        <span class="title">Product <em>&amp;</em> Design</span>
       </div>
       <ul class="contact">
         <li><a href="mailto:hello@troubalex.de">hello@troubalex.de</a></li>
@@ -25,6 +25,22 @@
         <li><a href="https://github.com/troubalex" class="github" aria-label="Github profile"></a></li>
         <li><a href="#" class="more" aria-label="More information"></a></li>
       </ul>
+    </div>
+    <div class="card card-back">
+      <ul class="links">
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Presentations</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+      <div class="head">
+        <img class="portrait" src="images/portrait.jpeg" alt="Portrait">
+        <h1 class="tagline">I work at the intersection of design, product, and technology.</h1>
+      </div>
+      <div class="content">
+        <p>I’m currently helping create the next-generation Enterprise Architecture platform as Head of User Experience and Design at Ardoq. </p>
+        <p>I have previously worked as an interaction design consultant, the user experience designer at CFEngine, and I have managed the Qt developer community. I have contributed to a number of open source projects, such as KDE, RailsGirls, and Exercism.</p>
+        <p>I hold a masters degree in opera singing from the university of music and dance in Cologne, Germany, and now live with my family in Oslo, Norway.</p>
+      </div>
     </div>
   </body>
 </html>

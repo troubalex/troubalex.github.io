@@ -1,7 +1,9 @@
 /*** MAIN SELECTORS ***/
 html {
-  font-size: 2vw;
   background: #536574;
+  font-size: 2vw;
+  min-height: 100%;
+  margin: 0;
 }
 body {
   align-items: center;
@@ -14,7 +16,7 @@ body {
   font-style: normal;
   font-weight: 400;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
 }
 h1 {
@@ -22,9 +24,14 @@ h1 {
   font-family: 'Playfair Display', serif;
   font-style: italic;
   font-weight: 700;
-  font-size: 3.5em;
   line-height: 1.4;
   margin: 0;
+}
+p:first-child {
+  margin-top: 0;
+}
+p:last-child {
+  margin-bottom: 0;
 }
 h1::selection,
 span::selection,
@@ -35,19 +42,13 @@ a::selection {
 em {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-weight: 700;
 }
 ul {
   align-items: center;
   display: flex;
-  justify-content: space-between;
   list-style-type: none;
   margin: 0;
   padding: 0;
-}
-img {
-  height: .8em;
-  width: .8em;
 }
 a {
   color: #536574;
@@ -62,9 +63,15 @@ a:hover {
   align-items: flex-start;
   flex-direction: column;
 }
+.social {
+  justify-content: space-between;
+}
+.contact, .social {
+  margin-top: 1em;
+}
 .social li {
-  height: .8em;
-  width: .8em;
+  height: .6em;
+  width: .6em;
 }
 .social li:nth-child(2) {
   flex-grow: 1;
@@ -99,26 +106,69 @@ a:hover {
 .more:hover {
   background-image: url("images/fingerright-hover.svg");
 }
+.links {
+  justify-content: center;
+  margin-bottom: 2em;
+}
+.links li {
+  font-size: .6em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-right: 2em;
+  text-transform: uppercase;
+}
+.links li a {
+  color: #6D7F8F;
+  text-decoration: none;
+}
+.links li a:hover,
+.links li a:active {
+  color: #4F8EC1;
+}
 .card {
   background-color: #fff;
   border-radius: 0.125em;
   box-shadow: 0 0 0.125em rgba(90, 103, 114, 0.1);
-  display: inline-flex;
   flex-direction: column;
   font-size: 1.2em;
   padding: 2.2em 4.4em;
 }
+.card-front {
+  display: flex;
+}
+.card-back {
+  display: none;
+  margin: 2em auto;
+  max-width: 70%;
+}
 .head {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 2em;
 }
-.subhead {
+.content {
+  margin-bottom: 1em;
+}
+.name {
+  font-size: 3.5em;
+}
+.title {
   color: #6D7F8F;
   font-size: 1.2em;
   font-weight: 700;
   text-transform: uppercase;
 }
-.contact, .social {
-  margin-top: 1em;
+.portrait {
+  align-self: center;
+  border-radius: 50%;
+  border: 1px solid #d2d7dc;
+  height: 5em;
+  margin-bottom: 2em;;
+  overflow: hidden;
+  width: 5em;
+}
+.tagline {
+  font-size: 1.5em;
 }
 
 /*** ANIMATIIONS ***/
@@ -141,8 +191,9 @@ a:hover {
   }
   body {
     align-items: stretch;
+    height: 100vh;
   }
-  h1 {
+  .name {
     font-size: 2.4em;
   }
   li {
@@ -150,14 +201,22 @@ a:hover {
   }
   .card {
     justify-content: space-between;
+  }
+  .card-front {
     margin: 20% 0 30% 0;
     padding: 6.8em 2em 2.2em 2em;
   }
-  .head {
+  .card-back {
+    padding: 2.2em 2em;
+  }
+  .card-front .head {
     flex-grow: 2;
   }
   .subhead {
     display: block;
+  }
+  .portrait {
+    display: none;
   }
   .social li {
     height: 1em;
