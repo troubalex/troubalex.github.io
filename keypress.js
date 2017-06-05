@@ -257,6 +257,7 @@ const colors = {
 };
 
 const body = document.querySelector('body');
+const splash = document.querySelector('.splash');
 
 body.onkeydown = function (e) {
 if ( !e.metaKey ) {
@@ -265,9 +266,8 @@ if ( !e.metaKey ) {
 
 console.log(e.keyCode);
 console.log(colors[e.keyCode]);
+console.log(splash);
 
-document.body.style.setProperty('--bgColor', colors[e.keyCode])
+body.style.setProperty('--bgColor', colors[e.keyCode]);
+splash.style.setProperty('--visibility', 'hidden');
 };
-
-// NOTEPAD
-// .setAttribute('style', '--captionColor: ' + randomColor());
