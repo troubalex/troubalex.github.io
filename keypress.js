@@ -262,7 +262,11 @@ body.onkeydown = function (e) {
 if ( !e.metaKey ) {
   e.preventDefault();
 }
+
 console.log(e.keyCode);
+console.log(colors[e.keyCode]);
+
+document.body.style.setProperty('--bgColor', colors[e.keyCode])
 };
 
 // NOTEPAD

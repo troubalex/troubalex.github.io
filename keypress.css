@@ -1,5 +1,10 @@
+:root {
+  --bgColor: darkslateblue;
+}
+
 body {
-  background-color: darkslateblue;
+  background-color: var(--bgColor);
   font-size: 2em;
-  padding: 5em;
+  height: 100%;
+  width: 100%;
 }
