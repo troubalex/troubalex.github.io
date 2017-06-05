@@ -260,14 +260,11 @@ const body = document.querySelector('body');
 const splash = document.querySelector('.splash');
 
 body.onkeydown = function (e) {
-if ( !e.metaKey ) {
-  e.preventDefault();
-}
-
-console.log(e.keyCode);
-console.log(colors[e.keyCode]);
-console.log(splash);
-
-body.style.setProperty('--bgColor', colors[e.keyCode]);
-splash.style.setProperty('--visibility', 'hidden');
+  if ( !e.metaKey ) {
+    e.preventDefault();
+  }
+  if (splash.style.opacity !== 0) {
+    splash.style.setProperty('--opacity', '0');
+  }
+  body.style.setProperty('--bgColor', colors[e.keyCode]);
 };
