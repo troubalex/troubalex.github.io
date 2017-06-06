@@ -1,10 +1,5 @@
-:root {
-  --bgColor: DarkSlateBlue;
-  --textColor: GhostWhite;
-  --opacity: 1;
-}
-
 body {
+  --bgColor: DarkSlateBlue;
   align-items: center;
   background-color: var(--bgColor);
   display: flex;
@@ -16,6 +11,8 @@ body {
 }
 
 .splash {
+  --textColor: GhostWhite;
+  --opacity: 1;
   color: var(--textColor);
   font-family: monospace;
   transition: opacity 1s ease-in-out;
