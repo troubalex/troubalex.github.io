@@ -258,9 +258,8 @@ const colors = {
 
 const body = document.querySelector('body');
 const splash = document.querySelector('.splash');
-const particle = document.querySelector('.particle');
 
-const randomProperties = function () {
+const randomProperties = function (particle) {
   let left = Math.floor(Math.random() * (99 - 1)) + 1;
   particle.style.setProperty('--left', left + '%');
 
@@ -272,7 +271,28 @@ const randomProperties = function () {
 
   let opacity = Math.random() + 0.1;
   particle.style.setProperty('--opacity', opacity);
-  console.log(opacity);
+};
+
+const removeSparkles = function() {
+  let sparkle = document.getElementsByClassName('particle');
+
+  for (let i = 0; i < sparkle.length; i++) {
+    sparkle[i].parentNode.removeChild(sparkle[i])
+  }
+};
+
+const addSparkles = function() {
+  let maxCount = (Math.random() * 99) + 1;
+
+  for (let i = 0; i < maxCount; i++) {
+    let sparkle = document.createElement("div");
+    sparkle.classList.add("particle");
+
+    let main = document.querySelector('main');
+    main.appendChild(sparkle);
+
+    randomProperties(sparkle);
+  }
 };
 
 body.onkeydown = function (e) {
@@ -283,5 +303,7 @@ body.onkeydown = function (e) {
     splash.style.setProperty('--opacity', '0');
   }
   body.style.setProperty('--bgColor', colors[e.keyCode]);
-  randomProperties();
+
+  removeSparkles();
+  addSparkles();
 };
