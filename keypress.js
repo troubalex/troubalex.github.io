@@ -258,6 +258,22 @@ const colors = {
 
 const body = document.querySelector('body');
 const splash = document.querySelector('.splash');
+const particle = document.querySelector('.particle');
+
+const randomProperties = function () {
+  let left = Math.floor(Math.random() * (99 - 1)) + 1;
+  particle.style.setProperty('--left', left + '%');
+
+  let top = Math.floor(Math.random() * (99 - 1)) + 1;
+  particle.style.setProperty('--top', top + '%');
+
+  let size = Math.floor(Math.random() * (9 - 2)) + 2;
+  particle.style.setProperty('--size', size + 'px');
+
+  let opacity = Math.random() + 0.1;
+  particle.style.setProperty('--opacity', opacity);
+  console.log(opacity);
+};
 
 body.onkeydown = function (e) {
   if ( !e.metaKey ) {
@@ -267,4 +283,5 @@ body.onkeydown = function (e) {
     splash.style.setProperty('--opacity', '0');
   }
   body.style.setProperty('--bgColor', colors[e.keyCode]);
+  randomProperties();
 };

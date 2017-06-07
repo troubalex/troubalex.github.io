@@ -1,20 +1,41 @@
+:root {
+  --opacity: 1;
+}
 body {
   --bgColor: DarkSlateBlue;
-  align-items: center;
   background-color: var(--bgColor);
-  display: flex;
   font-size: 2em;
+  transition: background-color 600ms ease-in-out;
+}
+
+main {
+  align-items: center;
+  display: flex;
   height: 100%;
   justify-content: center;
-  transition: background-color 600ms ease-in-out;
   width: 100%;
+  z-index: 1;
 }
 
 .splash {
   --textColor: GhostWhite;
-  --opacity: 1;
   color: var(--textColor);
   font-family: monospace;
   transition: opacity 1s ease-in-out;
   opacity: var(--opacity);
+}
+
+.particle {
+  --size: 0px;
+  --left: 10%;
+  --top: 10%;
+  background-color: GhostWhite;
+  border-radius: 50%;
+  height: var(--size);
+  left: var(--left);
+  opacity: var(--opacity);
+  position: absolute;
+  top: var(--top);
+  width: var(--size);
+  z-index: 99;
 }
