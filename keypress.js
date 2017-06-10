@@ -266,8 +266,10 @@ const randomProperties = function (particle) {
   const top = Math.floor(Math.random() * (99 - 1)) + 1;
   particle.style.setProperty('--top', top + '%');
 
-  const size = Math.floor(Math.random() * (9 - 2)) + 2;
+  const size = Math.floor(Math.random() * (6 - 2)) + 2;
   particle.style.setProperty('--size', size + 'px');
+  particle.style.setProperty('--blur', (size * 4) + 'px');
+  particle.style.setProperty('--spread', (size) + 'px');
 
   const opacity = Math.random() + 0.1;
   particle.style.setProperty('--opacity', opacity);

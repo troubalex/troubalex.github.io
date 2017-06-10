@@ -25,6 +25,7 @@ main {
   animation: var(--duration) linear var(--delay) var(--iteration) forwards sparkle;
   background-color: GhostWhite;
   border-radius: 50%;
+  box-shadow: 0 0 var(--blur) var(--spread) rgba(255, 255, 224, 0.5);
   height: var(--size);
   left: var(--left);
   opacity: 0;
@@ -37,6 +38,6 @@ main {
 @keyframes sparkle {
   0% { opacity: 0; }
   25% { opacity: var (--opacity);}
-  75% { opacity: 1; }
+  75% { opacity: 0.9; }
   100% { opacity: 0; }
 }
