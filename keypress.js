@@ -271,10 +271,19 @@ const randomProperties = function (particle) {
 
   const opacity = Math.random() + 0.1;
   particle.style.setProperty('--opacity', opacity);
+
+  const duration = Math.floor(Math.random() * (800 - 300)) + 300;
+  particle.style.setProperty('--duration', duration + 'ms');
+
+  const delay = Math.floor(Math.random() * (1000 - 200)) + 200;
+  particle.style.setProperty('--delay', delay + 'ms');
+
+  const iteration = Math.floor(Math.random() * (10 - 4)) + 4;
+  particle.style.setProperty('--iteration', iteration);
 };
 
 const removeSparkles = function() {
-  const sparkle = document.getElementsByClassName('particle');
+  let sparkle = document.getElementsByClassName('particle');
 
   for (let i = 0; i < sparkle.length; i++) {
     sparkle[i].parentNode.removeChild(sparkle[i])
@@ -282,13 +291,13 @@ const removeSparkles = function() {
 };
 
 const addSparkles = function() {
-  const maxCount = (Math.random() * 99) + 1;
+  let maxCount = (Math.random() * 99) + 1;
 
   for (let i = 0; i < maxCount; i++) {
-    const sparkle = document.createElement("div");
+    let sparkle = document.createElement("div");
     sparkle.classList.add("particle");
 
-    const main = document.querySelector('main');
+    let main = document.querySelector('main');
     main.appendChild(sparkle);
 
     randomProperties(sparkle);
