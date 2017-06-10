@@ -291,7 +291,7 @@ const removeSparkles = function() {
 };
 
 const addSparkles = function() {
-  let maxCount = (Math.random() * 99) + 1;
+  let maxCount = (Math.random() * 99) + 10;
 
   for (let i = 0; i < maxCount; i++) {
     let sparkle = document.createElement("div");
