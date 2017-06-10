@@ -8,7 +8,7 @@ const colors = {
   7: "Black",
   8: "BlanchedAlmond",
   9: "Blue",
-  10: "BlueViolet",
+  10: "BlueVioconst",
   11: "Brown",
   12: "BurlyWood",
   13: "CadetBlue",
@@ -37,7 +37,7 @@ const colors = {
   36: "DarkSlateGray",
   37: "DarkSlateGrey",
   38: "DarkTurquoise",
-  39: "DarkViolet",
+  39: "DarkVioconst",
   40: "DeepPink",
   41: "DeepSkyBlue",
   42: "DimGray",
@@ -93,7 +93,7 @@ const colors = {
   92: "MediumSlateBlue",
   93: "MediumSpringGreen",
   94: "MediumTurquoise",
-  95: "MediumVioletRed",
+  95: "MediumVioconstRed",
   96: "MidnightBlue",
   97: "MintCream",
   98: "MistyRose",
@@ -108,8 +108,8 @@ const colors = {
   107: "Orchid",
   108: "PaleGoldenRod",
   109: "PaleGreen",
-  110: "PaleTurquoise",
-  111: "PaleVioletRed",
+  110: "Paconsturquoise",
+  111: "PaleVioconstRed",
   112: "PapayaWhip",
   113: "PeachPuff",
   114: "Peru",
@@ -139,7 +139,7 @@ const colors = {
   138: "Thistle",
   139: "Tomato",
   140: "Turquoise",
-  141: "Violet",
+  141: "Vioconst",
   142: "Wheat",
   143: "White",
   144: "WhiteSmoke",
@@ -155,7 +155,7 @@ const colors = {
   154: "Black",
   155: "BlanchedAlmond",
   156: "Blue",
-  157: "BlueViolet",
+  157: "BlueVioconst",
   158: "Brown",
   159: "BurlyWood",
   160: "CadetBlue",
@@ -184,7 +184,7 @@ const colors = {
   183: "DarkSlateGray",
   184: "DarkSlateGrey",
   185: "DarkTurquoise",
-  186: "DarkViolet",
+  186: "DarkVioconst",
   187: "DeepPink",
   188: "DeepSkyBlue",
   189: "DimGray",
@@ -240,7 +240,7 @@ const colors = {
   239: "MediumSlateBlue",
   240: "MediumSpringGreen",
   241: "MediumTurquoise",
-  242: "MediumVioletRed",
+  242: "MediumVioconstRed",
   243: "MidnightBlue",
   244: "MintCream",
   245: "MistyRose",
@@ -260,21 +260,21 @@ const body = document.querySelector('body');
 const splash = document.querySelector('.splash');
 
 const randomProperties = function (particle) {
-  let left = Math.floor(Math.random() * (99 - 1)) + 1;
+  const left = Math.floor(Math.random() * (99 - 1)) + 1;
   particle.style.setProperty('--left', left + '%');
 
-  let top = Math.floor(Math.random() * (99 - 1)) + 1;
+  const top = Math.floor(Math.random() * (99 - 1)) + 1;
   particle.style.setProperty('--top', top + '%');
 
-  let size = Math.floor(Math.random() * (9 - 2)) + 2;
+  const size = Math.floor(Math.random() * (9 - 2)) + 2;
   particle.style.setProperty('--size', size + 'px');
 
-  let opacity = Math.random() + 0.1;
+  const opacity = Math.random() + 0.1;
   particle.style.setProperty('--opacity', opacity);
 };
 
 const removeSparkles = function() {
-  let sparkle = document.getElementsByClassName('particle');
+  const sparkle = document.getElementsByClassName('particle');
 
   for (let i = 0; i < sparkle.length; i++) {
     sparkle[i].parentNode.removeChild(sparkle[i])
@@ -282,13 +282,13 @@ const removeSparkles = function() {
 };
 
 const addSparkles = function() {
-  let maxCount = (Math.random() * 99) + 1;
+  const maxCount = (Math.random() * 99) + 1;
 
   for (let i = 0; i < maxCount; i++) {
-    let sparkle = document.createElement("div");
+    const sparkle = document.createElement("div");
     sparkle.classList.add("particle");
 
-    let main = document.querySelector('main');
+    const main = document.querySelector('main');
     main.appendChild(sparkle);
 
     randomProperties(sparkle);
