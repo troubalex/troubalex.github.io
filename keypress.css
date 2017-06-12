@@ -16,14 +16,19 @@ main {
 }
 
 .splash {
+  align-items: center;
   color: GhostWhite;
+  display: flex;
+  flex-direction: column;
   font-family: monospace;
+  justify-content: space-between;
   transition: opacity 1s ease-in-out;
   opacity: var(--opacity);
   padding: 0 2em;
 }
-.splash:before {
-  content: 'Touch to start';
+
+.emoji {
+  margin: .5em 0;
 }
 
 .particle {
@@ -47,12 +52,19 @@ main {
   100% { opacity: 0; }
 }
 
-@media (min-width: 680px) {
+@media (min-width: 330px) {
   main {
     cursor: default;
+    flex-direction: row;
   }
-  .splash:before {
-    content: 'Press any key to start';
-    padding: 0;
+  .splash {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
   }
+  .emoji {
+    font-size: 1.5em;
+    margin: 0 .5em;
+  }
+
 }
