@@ -257,6 +257,7 @@ const colors = {
 };
 
 const body = document.querySelector('body');
+const main = document.querySelector('main');
 const splash = document.querySelector('.splash');
 
 const randomProperties = function (particle) {
@@ -319,7 +320,7 @@ body.onkeydown = function (e) {
   addSparkles();
 };
 
-body.onclick = function (e) {
+main.onclick = function (e) {
 
   if (splash.style.opacity !== 0) {
     splash.style.setProperty('--opacity', '0');
