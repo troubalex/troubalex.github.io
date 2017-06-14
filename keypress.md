@@ -7,6 +7,8 @@ date: 2017-06-14
 
 [… that's the part I play.](https://youtu.be/0yk9YZfqay0)
 
+![](https://raw.githubusercontent.com/troubalex/troubalex.github.io/master/images/keypress-blog-header.png)
+
 After attending [CSSconfEU](https://2017.cssconf.eu/), I started to think about what I could do with CSS variables. 
 
 ## Preparing a hash of keys and colors
@@ -200,7 +202,7 @@ const addSparkles = function() {
 
 Inside the loop, I create a particle just like before, but now I  call my randomProperties function to assign random values to CSS variables inside the `particle` class.
 
-## ... and removing them
+## ... and removing them again
 
 But now all these sparkles piled up in the DOM whenever I pressed a key which is not quite what I wanted.
 
@@ -224,7 +226,46 @@ Here I had to pause and think for a bit because my initial reaction was to simpl
 
 Now I have particles, but still no glitter. Time for some animations.
 
+```css
+.particle {
+  animation: var(--duration) linear var(--delay) var(--iteration) forwards sparkle;
+  ...
+  opacity: 0;
+}
+@keyframes sparkle {
+  0% { opacity: 0; }
+  25% { opacity: var (--opacity);}
+  75% { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+```
+
+_words about animation_
+
+```javascript
+const randomProperties = function (particle) {
+  
+  ...
+  
+  const opacity = Math.random() + 0.1;
+  particle.style.setProperty('--opacity', opacity);
+
+  const duration = Math.floor(Math.random() * (800 - 300)) + 300;
+  particle.style.setProperty('--duration', duration + 'ms');
+
+  const delay = Math.floor(Math.random() * (1000 - 200)) + 200;
+  particle.style.setProperty('--delay', delay + 'ms');
+
+  const iteration = Math.floor(Math.random() * (10 - 4)) + 4;
+  particle.style.setProperty('--iteration', iteration);
+};
+```
+
+_words about random properties_
+
 ## Getting ready for the stage
+
+_words about emojis_
 
 ## Resources
 - [David's presentation at CSSconfEU](https://youtu.be/4IRPxCMAIfA), and [the slides](http://slides.com/davidkhourshid/getting-reactive-with-css)
