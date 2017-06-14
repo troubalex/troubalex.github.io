@@ -321,14 +321,13 @@ body.onkeydown = function (e) {
 };
 
 main.onclick = function (e) {
-
   if (splash.style.opacity !== 0) {
     splash.style.setProperty('--opacity', '0');
   }
-
   const randomNumber = Math.floor(Math.random() * (255 - 1)) + 1;
   body.style.setProperty('--bgColor', colors[randomNumber]);
 
   removeSparkles();
   addSparkles();
 }
+console.log('💁');

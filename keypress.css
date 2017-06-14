@@ -1,7 +1,10 @@
 body {
   --bgColor: DarkSlateBlue;
   background-color: var(--bgColor);
+
+  font-family: monospace;
   font-size: 2em;
+  margin: 0;
   transition: background-color 600ms ease-in-out;
 }
 
@@ -15,12 +18,25 @@ main {
   z-index: 1;
 }
 
+footer {
+  align-items: center;
+  bottom: 1em;
+  display: flex;
+  font-size: .5em;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+}
+
+a {
+  color: GhostWhite;
+}
+
 .splash {
   align-items: center;
   color: GhostWhite;
   display: flex;
   flex-direction: column;
-  font-family: monospace;
   justify-content: space-between;
   transition: opacity 1s ease-in-out;
   opacity: var(--opacity);
@@ -54,7 +70,6 @@ main {
 
 @media (min-width: 330px) {
   main {
-    cursor: default;
     flex-direction: row;
   }
   .splash {
