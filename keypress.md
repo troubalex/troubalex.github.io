@@ -1,7 +1,5 @@
----
-title: &#x2728; Glitter, and be gay &#x2728;
-date: 2017-06-14
----
+
+15 June 2017
 
 # &#x2728; Glitter, and be gay &#x2728;
 
@@ -9,7 +7,9 @@ date: 2017-06-14
 
 ![](https://raw.githubusercontent.com/troubalex/troubalex.github.io/master/images/keypress-blog-header.png)
 
-After attending [CSSconfEU](https://2017.cssconf.eu/), I started to think about what I could do with CSS variables. 
+After attending [CSSconfEU](https://2017.cssconf.eu/), I started to think about what I could do with CSS variables to get the hang of it. Why not change the background color of a page once a visitor presses a key on their keyboard? It all evolved from there.
+
+[&#x1f449; So here we go. &#x1f448;](http://troubalex.github.io/keypress.html)
 
 ## Preparing a hash of keys and colors
 
@@ -49,9 +49,9 @@ Then I simply copied the resulting list as a hash into my JS file.
 const colors = {
   1: "AntiqueWhite",
   2: "Aqua",
-  
+
   ... // all the colors...
-  
+
   255: "PaleGoldenRod"
 };
 ```
@@ -228,25 +228,28 @@ Now I have particles, but still no glitter. Time for some animations.
 
 ```css
 .particle {
-  animation: var(--duration) linear var(--delay) var(--iteration) forwards sparkle;
+  animation: var(--duration) linear var(--delay) var(--iteration) sparkle;
   ...
   opacity: 0;
 }
+
 @keyframes sparkle {
   0% { opacity: 0; }
-  25% { opacity: var (--opacity);}
+  25% { opacity: var (--opacity); }
   75% { opacity: 0.9; }
   100% { opacity: 0; }
 }
 ```
 
-_words about animation_
+I animate opacity on the particles for the sparkle effect. The values and keyframes steps I landed on are the result of taste-based tweaking, they simply felt right.
+
+But to really make it glitter, I use random values for the opacity 25% into the animation, the animation duration, the delay, and for how often I iterate over the animation. 
 
 ```javascript
 const randomProperties = function (particle) {
-  
+
   ...
-  
+
   const opacity = Math.random() + 0.1;
   particle.style.setProperty('--opacity', opacity);
 
@@ -261,13 +264,20 @@ const randomProperties = function (particle) {
 };
 ```
 
-_words about random properties_
+Again, the values are the result of trial and error until everything felt more or less right.
+
+A fun side effect of combining these random values for the animation is that the glittering kind of fizzles out if you do not trigger a new round of changes on the page.
 
 ## Getting ready for the stage
 
-_words about emojis_
+Just showing the page without mentioning anything about what to do was a tad cryptic. Initially, I had it spelled out which action anyone visiting should take (press a key, in fact) but that didn’t work well on mobile. So I changed the text for different breakpoints. But of course, that would fail on bigger touch screens like tablets, since I didn’t figure out how to detect those **before** any event is registered.
+
+Enter emojis.
+
+Everything is better with emojis. &#x1f496;
 
 ## Resources
+- All code is in [my Github repo](https://github.com/troubalex/troubalex.github.io)
 - [David's presentation at CSSconfEU](https://youtu.be/4IRPxCMAIfA), and [the slides](http://slides.com/davidkhourshid/getting-reactive-with-css)
 - [Una's blog on locally scoped CSS variables](https://una.im/local-css-vars/#💁)
 - [Wes Bos' keycode site](http://keycode.info/)
