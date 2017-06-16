@@ -7,13 +7,13 @@
 
 ![](https://raw.githubusercontent.com/troubalex/troubalex.github.io/master/images/keypress-blog-header.png)
 
-After attending [CSSconfEU](https://2017.cssconf.eu/), I started to think about what I could do with CSS variables to get the hang of it. Why not change the background color of a page once a visitor presses a key on their keyboard? It all evolved from there.
+After attending [CSSconfEU](https://2017.cssconf.eu/), I started to think about what I could do with CSS variables to get the hang of it. Why not change the background color of a page once a visitor presses a key on their keyboard?
 
-[&#x1f449; So here we go. &#x1f448;](http://troubalex.github.io/keypress.html)
+[&#x1f449; Here we go. &#x1f448;](http://troubalex.github.io/keypress.html)
 
 ## Preparing a hash of keys and colors
 
-First, I had to assign each key its color. I didn't want the hex codes to be generated at random, since that leads to a bunch of really ugly variations, so I went with [named colors](https://css-tricks.com/snippets/css/named-colors-and-hex-equivalents/) instead.
+First, I had to assign each key on a keyboard its color. I didn't want the hex codes to be generated at random, since that leads to a bunch of really ugly variations, so I went with [named colors](https://css-tricks.com/snippets/css/named-colors-and-hex-equivalents/) instead.
 
 I wrote a little script to avoid manually creating a list of key value pairs for all possible keys, and ran that over the file containing my plain list of color names.
 
@@ -35,9 +35,11 @@ begin
 end while i < 256
 ```
 
-The highest number representing a key on a keyboard is 255 but there are only 147 named colors, so I simply read the file twice, and stuffed everything in an array.
+The highest number representing a key on a keyboard is 255 but there are only 147 named colors, so I simply read the file twice, and stuff everything into an array. It’s no big deal if this list is not 100% precise.
 
-Then I iterated over the array to create a list of key value pairs in the format of `number: color,`. I ran the script from the terminal, and piped the output into a new file:
+Then I iterate over the array to create a list of key value pairs in the format of `number: "color",`. 
+
+I ran the script from the terminal, and piped the output into a new file.
 
 ```bash
 $ script.rb > colors
@@ -67,9 +69,9 @@ body {
 }
 ```
 
-I assigned `DarkSlateBlue` as a default so the site had a background color set already when loading. Then I could use Javascript to update the value when a key is pressed.
+I assign `DarkSlateBlue` as a default so the page has a background color set already when loading. Then I use Javascript to update the value when a key is pressed.
 
-Since I remembered the keyboard drum exercise from one of the first lessons of Wes Bos' [Javascript30 course](https://javascript30.com/), I figured I could reuse some of that code.
+I remembered the keyboard drum exercise from one of the first lessons of Wes Bos' [Javascript30 course](https://javascript30.com/), and I figured I could take a look at some of that code again.
 
 ```javascript
 const body = document.querySelector('body');
@@ -82,13 +84,13 @@ body.onkeydown = function (e) {
 };
 ```
 
-This sets the value of `bgColor`  to whichever color corresponds  to the key code inside the big colors hash.
+This sets the value of `--bgColor`  to whichever color corresponds  to the key code inside the colors hash.
 
 ## Making it work on touch devices
 
-Mobile phones obviously don't show a keyboard when we open a webpage, so I decided to make the page change color on touch. And to make it interesting also for a single type of event, I pick a random color from my hash.
+Mobile phones don't show a keyboard when we open a webpage, so I decided to make the page change color on touch. And to make it interesting also for a single type of event, I assign a random color from my hash.
 
-According to MSDN, mobile Safari doesn't play well with click events on the body of a site, so I had to work around it by adding a `main` section. This was then supposed to accept mouse clicks, and –- fingers crossed -- touch events.
+According to MSDN, mobile Safari doesn't play well with click events on the body of a site, so I worked around it by adding a `main` section. This was then supposed to accept mouse clicks, and — fingers crossed — touch events.
 
 ```html
 <body>
@@ -112,7 +114,7 @@ First I create a random number between 255 and 1 which I then use to pick a colo
 
 Quick'n dirty iPhone test. Worked. Nice.
 
-While I played with the color change on the site, I kept thinking that it felt quite bland and boring. Why not add some glitter?
+While I played with the color change on the site, I kept thinking that it felt quite bland and boring. Let’s add some glitter!
 
 ## Adding a particle
 
@@ -145,11 +147,13 @@ const addSparkles = function() {
 
 First, I create a `div` with the class `particle`, and then I add it to the DOM as a child of `main`. Then I call the function from `onkeydown` and `onclick`.
 
-Poof. The site changes color and displays a dot.
+Poof. The site changes color and displays a particle.
 
 ## Adding even more particles
 
-One dot is obviously not going to cut it, I wanted MOAR! To make things interesting, I had to randomize properties such as size, placement, and shadow.
+One particle is not going to cut it, I want more!
+
+To make things interesting, I randomize properties such as size, placement, and shadow.
 
 ```css
 .particle {
@@ -165,7 +169,7 @@ One dot is obviously not going to cut it, I wanted MOAR! To make things interest
 }
 ```
 
-I added variables to all properties I wanted to manipulate, and assigned random values to them in Javascript.
+I add variables to all properties I want to manipulate, and assign random values to them in Javascript.
 
 ```javascript
 const randomProperties = function (particle) {
@@ -182,7 +186,7 @@ const randomProperties = function (particle) {
 };
 ```
 
-To create lots of particles, I added a for loop to the initial `addSparkles` function. I wanted the amount of particles to be different each time though, so I assigned a random number between 19 and 109 (99 looked good as a multiplier) to the break condition.
+To create lots of particles, I add a for loop to the initial `addSparkles` function. I want the amount of particles to be different each time though, so I assign a random number between 19 and 109 (99 looked good as a multiplier, hah) to the break condition.
 
 ```javascript
 const addSparkles = function() {
@@ -204,7 +208,7 @@ Inside the loop, I create a particle just like before, but now I  call my random
 
 ## ... and removing them again
 
-But now all these sparkles piled up in the DOM whenever I pressed a key which is not quite what I wanted.
+But now all these sparkles pile up in the DOM whenever I pressed a key. This is not quite what I want.
 
 So I have to remove them.
 
@@ -220,7 +224,7 @@ const removeSparkles = function() {
 
 First, I create an array of all DOM elements with class `particle`, then I loop over it, and remove each one.
 
-Here I had to pause and think for a bit because my initial reaction was to simply delete the array and be done with it. But the array of course only holds references to the DOM elements which need to be deleted from there one by one.
+I had to pause and think for a moment at this point because my initial reaction was to simply delete the array and be done with it. But the array only holds references to the DOM elements which need to be deleted from there one by one. This happens inside the `for` loop.
 
 ## Animating the particles
 
@@ -241,9 +245,9 @@ Now I have particles, but still no glitter. Time for some animations.
 }
 ```
 
-I animate opacity on the particles for the sparkle effect. The values and keyframes steps I landed on are the result of taste-based tweaking, they simply felt right.
+I animate opacity on the particles for the sparkle effect. The values and keyframes steps I landed on are the result of taste-based tweaking, they felt right.
 
-But to really make it glitter, I use random values for the opacity 25% into the animation, the animation duration, the delay, and for how often I iterate over the animation. 
+To kick the glittering up a notch, I use random values for the opacity at 25%, the animation duration, the delay, and for how often I iterate over the animation. 
 
 ```javascript
 const randomProperties = function (particle) {
@@ -264,7 +268,7 @@ const randomProperties = function (particle) {
 };
 ```
 
-Again, the values are the result of trial and error until everything felt more or less right.
+Again, the values are the result of trial and error until everything felt more or less right. No other reasons involved.
 
 A fun side effect of combining these random values for the animation is that the glittering kind of fizzles out if you do not trigger a new round of changes on the page.
 
@@ -277,7 +281,7 @@ Enter emojis.
 Everything is better with emojis. &#x1f496;
 
 ## Resources
-- All code is in [my Github repo](https://github.com/troubalex/troubalex.github.io)
+- [My Github repo](https://github.com/troubalex/troubalex.github.io) with the final code for the demo
 - [David's presentation at CSSconfEU](https://youtu.be/4IRPxCMAIfA), and [the slides](http://slides.com/davidkhourshid/getting-reactive-with-css)
 - [Una's blog on locally scoped CSS variables](https://una.im/local-css-vars/#💁)
 - [Wes Bos' keycode site](http://keycode.info/)
