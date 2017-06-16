@@ -9,7 +9,7 @@
 
 After attending [CSSconfEU](https://2017.cssconf.eu/), I started to think about what I could do with CSS variables to get the hang of it. Why not change the background color of a page once a visitor presses a key on their keyboard?
 
-[&#x1f449; Here we go. &#x1f448;](http://troubalex.github.io/keypress.html)
+[&#x1f449; Here we go. &#x1f448;](http://troubalex.github.io/sparkles)
 
 ## Preparing a hash of keys and colors
 
@@ -37,7 +37,7 @@ end while i < 256
 
 The highest number representing a key on a keyboard is 255 but there are only 147 named colors, so I simply read the file twice, and stuff everything into an array. It’s no big deal if this list is not 100% precise.
 
-Then I iterate over the array to create a list of key value pairs in the format of `number: "color",`. 
+Then I iterate over the array to create a list of key value pairs in the format of `number: "color",`.
 
 I ran the script from the terminal, and piped the output into a new file.
 
@@ -247,7 +247,7 @@ Now I have particles, but still no glitter. Time for some animations.
 
 I animate opacity on the particles for the sparkle effect. The values and keyframes steps I landed on are the result of taste-based tweaking, they felt right.
 
-To kick the glittering up a notch, I use random values for the opacity at 25%, the animation duration, the delay, and for how often I iterate over the animation. 
+To kick the glittering up a notch, I use random values for the opacity at 25%, the animation duration, the delay, and for how often I iterate over the animation.
 
 ```javascript
 const randomProperties = function (particle) {
