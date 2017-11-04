@@ -1,0 +1,23 @@
+body {
+  background-color: floralwhite;
+  color: tomato;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 16px;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+}
+
+#timer {
+  font-weight: 400;
+  font-size: calc(100vh / 3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
