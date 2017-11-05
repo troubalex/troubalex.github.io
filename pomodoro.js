@@ -1,9 +1,5 @@
-let timeInMinutes = 25;
-let currentTime = Date.parse(new Date());
-let deadline = new Date(currentTime + timeInMinutes*60*1000);
-
 function getTimeRemaining (endtime) {
-  let t = Date.parse(endtime) - Date.parse(new Date());
+  let t = endtime - Date.parse(new Date());
   let seconds = Math.floor( (t / 1000) % 60 );
   let minutes = Math.floor( (t / 1000 / 60) % 60 );
 
@@ -28,8 +24,19 @@ function initializeClock(id, endtime){
     }
   }
 
-  updateClock(); // run function once at first to avoid delay
+  updateClock();
   var timeinterval = setInterval(updateClock,1000);
 }
 
-initializeClock('timer', deadline);
+function startTimer(){
+  let timeInMinutes = 25;
+  let currentTime   = Date.parse(new Date());
+  let deadline      = (Date.parse(new Date()) + timeInMinutes*60*1000);
+
+  initializeClock('timer', deadline);
+}
+
+let btn = document.getElementsByTagName('button')[0];
+btn.onclick = function(){
+  startTimer();
+}
